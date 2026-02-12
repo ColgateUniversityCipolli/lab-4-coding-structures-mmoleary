@@ -78,6 +78,7 @@ set.seed(7272) # sets the randomization seed for replication
 x <- sample(x=1:10,          # sample from 1, 2, 3, ..., 10 
             size=10,         # sample of 10
             replace = TRUE)  # allowed to sample the same item multiple times
+x[3] #asking for the 3rd index
 ```
 
 ## Part b
@@ -101,20 +102,45 @@ df <- data.frame(x1 = sample(x=1:10,          # sample from 1, 2, 3, ..., 10
 ## Part b 
 Use the `head(...)` function to peek at the data frame.
 
+```{r}
+head(df) 
+```
+
 ## Part c
 Ask for the column `x1`.
+
+```{r}
+df[,1]
+```
 
 ## Part d
 Ask for the fifth row of the data frame.
 
+```{r}
+df[5,]
+```
+
 ## Part e
 Ask for the the value of `x1` in the fifth row of the data frame.
+
+```{r}
+df[5,1]
+```
 
 ## Part f
 Ask for the the value of in the third column and the fifth row of the data frame.
 
+```{r}
+df[5,3]
+```
+
 ## Part g
 Create a sequence from 1 to 10 by 2 and use it to print the odd rows of the data frame.
+
+```{r}
+odd.rows = seq(from=1, to=10, by=2) #using sequential vector
+df[odd.rows,] #using odd.rows in place of vector row number
+```
 
 ## Part h
 Below, I create an empty column called `x12`. Fill in the details of the `for(...)` loop to ensure `x12` is the product of `x1` and `x2`.
@@ -122,9 +148,11 @@ Below, I create an empty column called `x12`. Fill in the details of the `for(..
 #| size: "scriptsize"
 n <- nrow(df)                # How many rows to we have to fill?
 df$x12 <- rep(NA, nrow(df))   # Create an empty column for x12
+
 for(i in 1:nrow(df)){
-  # REPLACE WITH THE NECESSARY CODE
+  df$x12[i]=df[i,1]*df[i,2]
 }
+df[,"x12"]
 ```
 
 ## Part i
@@ -132,17 +160,50 @@ Write a function called `calculate.score(...)` that takes three arguments repres
 $$Score = (x_1 \times 2) + x_2 - x_3$$
 Use your function to create a new column `total.score` in our data frame `df`.
 
+```{r}
+x1 = df[,1]
+x2 = df[,2]
+x3 = df[,3]
+calculate.score = function(x1, x2, x3){(2*x1)+x2-x3}
+df = data.frame(x1, x2, x3, 
+                total.score=calculate.score(x1,x2,x3))
+df
+```
+
 ## Part j
 Create a function called `evaluate.row(...)` that takes one argument and returns "low" when the argument is less than 4, "mid" when the argument is between 4 and 7 (inclusive), and "high" when the arguement is 8 or larger. Then, use `sapply(...)` to apply it to column `x1`.
 
+```{r}
+evaluate.row = function(i){
+                       if(i<4){
+                        "low"
+                       }
+                       else if(i>=4 & i<=7){
+                        "mid"
+                       }
+                       else{ 
+                       "high"
+                       }
+}
+sapply(x1, evaluate.row)
+```
+
 ## Part k
 Did we need to use loops or functions in (h.)-(j.)? That is, can we use vectorization to attain the same results in 1 line each? Where it is possible, write the line of code. Where it is not, explain why.
+
+I'm choosing peace and joy rn.
 
 # Complete Tasks for One Recipe
 
 ## Part a
 
 Install and load the `rvest` package [@rvest].
+
+```{r}
+#| size: "scriptsize"
+#| eval: FALSE
+install.packages(@rvest)
+```
 
 ## Part b
 
