@@ -138,10 +138,84 @@ cat(formatted_list, sep = "\n")
 "website/BLTSalad.html"
 
 
+```{r}
+recipe.BLT = read_html("website/BLTSalad.html")
+recipe.BLT
+ingredients.BLT = html_element(recipe.BLT, "#ingredients")
+ingredients.BLT
+ingredients = html_elements(ingredients.BLT, "li")
+BLT.instructions.section = html_element(recipe.BLT, "#instructions")
+BLT.instructions.section
+BLT.instructions = html_elements(BLT.instructions.section, "li")
+BLT.instructions
+image.element = html_element(recipe.BLT,".figure-img")
+image.url=paste("website/",html_attr(image.element, "src"), sep="")
+```
+
+```{r}
+#| echo: false
+#| results: 'asis'
+# width="50%" shrinks the image for printing
+recipe.title <- recipe.BLT |> html_element("h1") |> html_text()
+cat(paste('![', recipe.title, '](', image.url, "){width=50%}", sep="")) 
+```
+
+```{r}
+#| echo: false
+#| results: 'asis'
+formatted_list <- paste("-", html_text(ingredients.BLT))
+cat(formatted_list, sep = "\n")
+```
+
+```{r}
+#| echo: false
+#| results: 'asis'
+formatted_list <- paste("1.", html_text(BLT.instructions))
+cat(formatted_list, sep = "\n")
+```
+
+
 # Recipe Three
 
 \newpage
-"website/AfricanPeanutSoup.html"
+"website/.html"
+
+
+```{r}
+recipe.AfricanPeanutSoup = read_html("website/AfricanPeanutSoup.html")
+recipe.AfricanPeanutSoup
+ingredients.AfricanPeanutSoup = html_element(recipe.AfricanPeanutSoup, "#ingredients")
+ingredients.AfricanPeanutSoup
+ingredients = html_elements(ingredients.AfricanPeanutSoup, "li")
+AfricanPeanutSoup.instructions.section = html_element(recipe.AfricanPeanutSoup, "#instructions")
+AfricanPeanutSoup.instructions.section
+AfricanPeanutSoup.instructions = html_elements(AfricanPeanutSoup.instructions.section, "li")
+AfricanPeanutSoup.instructions
+image.element = html_element(recipe.AfricanPeanutSoup,".figure-img")
+image.url=paste("website/",html_attr(image.element, "src"), sep="")
+```
+
+```{r}
+#| echo: false
+#| results: 'asis'
+# width="50%" shrinks the image for printing
+recipe.title <- recipe.AfricanPeanutSoup |> html_element("h1") |> html_text()
+cat(paste('![', recipe.title, '](', image.url, "){width=50%}", sep="")) 
+```
+
+```{r}
+#| echo: false
+#| results: 'asis'
+formatted_list <- paste("-", html_text(ingredients.AfricanPeanutSoup))
+cat(formatted_list, sep = "\n")
+```
+
+```{r}
+#| echo: false
+#| results: 'asis'
+formatted_list <- paste("1.", html_text(AfricanPeanutSoup.instructions))
+cat(formatted_list, sep = "\n")
+```
 
 # Breakfast Recipe
 
