@@ -45,6 +45,7 @@ knitr::knit_hooks$set(chunk = function(x, options) {
 #| label: load-packages
 #| include: false
 library(tidyverse)
+library(rvest)
 ```
 
 <!-- Code For Building Menu Here -->
@@ -59,6 +60,7 @@ breakfasts <- c("website/BerryMelonSmoothie.html",
                 "website/OvernightOats.html",
                 "website/PumpkinToast.html",
                 "website/TropicalSmoothie.html")
+sample(breakfasts, 1)
 dinner <- c("website/AfricanPeanutSoup.html",
             "website/Alfredo.html",
             "website/ArugulaPasta.html",
@@ -82,6 +84,7 @@ dinner <- c("website/AfricanPeanutSoup.html",
             "website/RedWineRagu.html",
             "website/SalmonChowder.html",
             "website/Shakshuka.html")
+sample(dinner, 3)
 ```
 
 # Ingredients
@@ -91,13 +94,55 @@ dinner <- c("website/AfricanPeanutSoup.html",
 # Recipe One
 
 \newpage
+"website/CapreseSandwiches.html"
+
+```{r}
+recipe.Caprese = read_html("website/CapreseSandwiches.html")
+recipe.Caprese
+ingredients.Caprese = html_element(recipe.Caprese, "#ingredients")
+ingredients.Caprese
+ingredients = html_elements(ingredients.Caprese, "li")
+Caprese.instructions.section = html_element(recipe.Caprese, "#instructions")
+Caprese.instructions.section
+Caprese.instructions = html_elements(Caprese.instructions.section, "li")
+Caprese.instructions
+image.element = html_element(recipe.Caprese,".figure-img")
+image.url=paste("website/",html_attr(image.element, "src"), sep="")
+```
+
+```{r}
+#| echo: false
+#| results: 'asis'
+# width="50%" shrinks the image for printing
+recipe.title <- recipe.Caprese |> html_element("h1") |> html_text()
+cat(paste('![', recipe.title, '](', image.url, "){width=50%}", sep="")) 
+```
+
+```{r}
+#| echo: false
+#| results: 'asis'
+formatted_list <- paste("-", html_text(ingredients.Caprese))
+cat(formatted_list, sep = "\n")
+```
+
+```{r}
+#| echo: false
+#| results: 'asis'
+formatted_list <- paste("1.", html_text(Caprese.instructions))
+cat(formatted_list, sep = "\n")
+```
 
 # Recipe Two
 
 \newpage
+"website/BLTSalad.html"
+
 
 # Recipe Three
 
 \newpage
+"website/AfricanPeanutSoup.html"
 
 # Breakfast Recipe
+
+"website/BerryMelonSmoothie.html"
