@@ -319,6 +319,14 @@ window.Quarto = {
 <div class="cell-output cell-output-stdout">
 <pre><code> [1]  8 21 15 18  4 24 10 12 12  8</code></pre>
 </div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>x12 <span class="ot">=</span> <span class="fu">c</span>(df[,<span class="dv">2</span>]<span class="sc">*</span>df[,<span class="dv">1</span>])</span>
+<span id="cb18-2"><a href="#cb18-2"></a>x12</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]  8 21 15 18  4 24 10 12 12  8</code></pre>
+</div>
 </div>
 <p></p>
 </section>
@@ -329,13 +337,13 @@ window.Quarto = {
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>x1 <span class="ot">=</span> df[,<span class="dv">1</span>]</span>
-<span id="cb18-2"><a href="#cb18-2"></a>x2 <span class="ot">=</span> df[,<span class="dv">2</span>]</span>
-<span id="cb18-3"><a href="#cb18-3"></a>x3 <span class="ot">=</span> df[,<span class="dv">3</span>]</span>
-<span id="cb18-4"><a href="#cb18-4"></a>calculate.score <span class="ot">=</span> <span class="cf">function</span>(x1, x2, x3){(<span class="dv">2</span><span class="sc">*</span>x1)<span class="sc">+</span>x2<span class="sc">-</span>x3}</span>
-<span id="cb18-5"><a href="#cb18-5"></a>df <span class="ot">=</span> <span class="fu">data.frame</span>(x1, x2, x3, </span>
-<span id="cb18-6"><a href="#cb18-6"></a>                <span class="at">total.score=</span><span class="fu">calculate.score</span>(x1,x2,x3))</span>
-<span id="cb18-7"><a href="#cb18-7"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>x1 <span class="ot">=</span> df[,<span class="dv">1</span>]</span>
+<span id="cb20-2"><a href="#cb20-2"></a>x2 <span class="ot">=</span> df[,<span class="dv">2</span>]</span>
+<span id="cb20-3"><a href="#cb20-3"></a>x3 <span class="ot">=</span> df[,<span class="dv">3</span>]</span>
+<span id="cb20-4"><a href="#cb20-4"></a>calculate.score <span class="ot">=</span> <span class="cf">function</span>(x1, x2, x3){(<span class="dv">2</span><span class="sc">*</span>x1)<span class="sc">+</span>x2<span class="sc">-</span>x3}</span>
+<span id="cb20-5"><a href="#cb20-5"></a>df <span class="ot">=</span> <span class="fu">data.frame</span>(x1, x2, x3, </span>
+<span id="cb20-6"><a href="#cb20-6"></a>                <span class="at">total.score=</span><span class="fu">calculate.score</span>(x1,x2,x3))</span>
+<span id="cb20-7"><a href="#cb20-7"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>   x1 x2 x3 total.score
@@ -360,18 +368,18 @@ window.Quarto = {
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>evaluate.row <span class="ot">=</span> <span class="cf">function</span>(i){</span>
-<span id="cb20-2"><a href="#cb20-2"></a>                       <span class="cf">if</span>(i<span class="sc">&lt;</span><span class="dv">4</span>){</span>
-<span id="cb20-3"><a href="#cb20-3"></a>                        <span class="st">"low"</span></span>
-<span id="cb20-4"><a href="#cb20-4"></a>                       }</span>
-<span id="cb20-5"><a href="#cb20-5"></a>                       <span class="cf">else</span> <span class="cf">if</span>(i<span class="sc">&gt;=</span><span class="dv">4</span> <span class="sc">&amp;</span> i<span class="sc">&lt;=</span><span class="dv">7</span>){</span>
-<span id="cb20-6"><a href="#cb20-6"></a>                        <span class="st">"mid"</span></span>
-<span id="cb20-7"><a href="#cb20-7"></a>                       }</span>
-<span id="cb20-8"><a href="#cb20-8"></a>                       <span class="cf">else</span>{ </span>
-<span id="cb20-9"><a href="#cb20-9"></a>                       <span class="st">"high"</span></span>
-<span id="cb20-10"><a href="#cb20-10"></a>                       }</span>
-<span id="cb20-11"><a href="#cb20-11"></a>}</span>
-<span id="cb20-12"><a href="#cb20-12"></a><span class="fu">sapply</span>(x1, evaluate.row)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>evaluate.row <span class="ot">=</span> <span class="cf">function</span>(i){</span>
+<span id="cb22-2"><a href="#cb22-2"></a>                       <span class="cf">if</span>(i<span class="sc">&lt;</span><span class="dv">4</span>){</span>
+<span id="cb22-3"><a href="#cb22-3"></a>                        <span class="st">"low"</span></span>
+<span id="cb22-4"><a href="#cb22-4"></a>                       }</span>
+<span id="cb22-5"><a href="#cb22-5"></a>                       <span class="cf">else</span> <span class="cf">if</span>(i<span class="sc">&gt;=</span><span class="dv">4</span> <span class="sc">&amp;</span> i<span class="sc">&lt;=</span><span class="dv">7</span>){</span>
+<span id="cb22-6"><a href="#cb22-6"></a>                        <span class="st">"mid"</span></span>
+<span id="cb22-7"><a href="#cb22-7"></a>                       }</span>
+<span id="cb22-8"><a href="#cb22-8"></a>                       <span class="cf">else</span>{ </span>
+<span id="cb22-9"><a href="#cb22-9"></a>                       <span class="st">"high"</span></span>
+<span id="cb22-10"><a href="#cb22-10"></a>                       }</span>
+<span id="cb22-11"><a href="#cb22-11"></a>}</span>
+<span id="cb22-12"><a href="#cb22-12"></a><span class="fu">sapply</span>(x1, evaluate.row)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "high" "low"  "mid"  "low"  "low"  "low"  "low"  "low"  "mid"  "low" </code></pre>
@@ -382,33 +390,30 @@ window.Quarto = {
 <section id="part-k" class="level2" data-number="1.12">
 <h2 data-number="1.12" class="anchored" data-anchor-id="part-k"><span class="header-section-number">1.12</span> Part k</h2>
 <p>Did we need to use loops or functions in (h.)-(j.)? That is, can we use vectorization to attain the same results in 1 line each? Where it is possible, write the line of code. Where it is not, explain why.</p>
-<p>I’m choosing peace and joy rn.</p>
+<p>I could use a vectorization in part h by filling a manual vector with the product of the data frame’s columns x1 and x2. # Complete Tasks for One Recipe</p>
 </section>
-</section>
-<section id="complete-tasks-for-one-recipe" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Complete Tasks for One Recipe</h1>
-<section id="part-a-1" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="part-a-1"><span class="header-section-number">2.1</span> Part a</h2>
+<section id="part-a-1" class="level2" data-number="1.13">
+<h2 data-number="1.13" class="anchored" data-anchor-id="part-a-1"><span class="header-section-number">1.13</span> Part a</h2>
 <p>Install and load the <code>rvest</code> package <span class="citation" data-cites="rvest">(<a href="#ref-rvest" role="doc-biblioref">Wickham 2025</a>)</span>.</p>
 <p></p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="co">#install.packages("rvest")</span></span>
-<span id="cb22-2"><a href="#cb22-2"></a><span class="fu">library</span>(<span class="st">"rvest"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="co">#install.packages("rvest")</span></span>
+<span id="cb24-2"><a href="#cb24-2"></a><span class="fu">library</span>(<span class="st">"rvest"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p></p>
 </section>
-<section id="part-b-2" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="part-b-2"><span class="header-section-number">2.2</span> Part b</h2>
+<section id="part-b-2" class="level2" data-number="1.14">
+<h2 data-number="1.14" class="anchored" data-anchor-id="part-b-2"><span class="header-section-number">1.14</span> Part b</h2>
 <p>Load the html of the <code>website/KimchiGrilledCheese.html</code> using the <code>read_html()</code> function and save the result to an object called <code>recipe.item</code>. We will use the Kimchi Grilled Cheese recipe as our prototype and extend this workflow to all recipes, so try to be as general as possible. If you do look at it, you’ll notice it contains the html we saw in the developer tools in class.<br> <strong>Hint</strong>: You can use <code>read_html(...)</code> like <code>read.csv(...)</code>. Don’t forget you can use the documentation to help use it.</p>
 <p></p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>recipe.item <span class="ot">=</span> <span class="fu">read_html</span>(<span class="st">"website/KimchiGrilledCheese.html"</span>)</span>
-<span id="cb23-2"><a href="#cb23-2"></a>recipe.item</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a>recipe.item <span class="ot">=</span> <span class="fu">read_html</span>(<span class="st">"website/KimchiGrilledCheese.html"</span>)</span>
+<span id="cb25-2"><a href="#cb25-2"></a>recipe.item</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>{html_document}
@@ -419,16 +424,16 @@ window.Quarto = {
 </div>
 <p></p>
 </section>
-<section id="part-c-1" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="part-c-1"><span class="header-section-number">2.3</span> Part c</h2>
+<section id="part-c-1" class="level2" data-number="1.15">
+<h2 data-number="1.15" class="anchored" data-anchor-id="part-c-1"><span class="header-section-number">1.15</span> Part c</h2>
 <p>Open the html file in a web browser and open developer tools. In chrome-based browsers, you can do this by pressing the three verticle dots in the upper-right corner, clicking “more tools”, then “developer tools”.</p>
 <p>Find the name of the Ingredients section of the website and pull the HTML of the function using <code>html_element(...)</code> and save the results to an object called <code>ingredients.section</code>. <br> <strong>Hint</strong>: You can ask for elements by id using a preceeding “#”. See <code>?html_element(...)</code> for a helpful example.</p>
 <p></p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a>ingredients.section <span class="ot">=</span> <span class="fu">html_element</span>(recipe.item, <span class="st">"#ingredients"</span>)</span>
-<span id="cb25-2"><a href="#cb25-2"></a>ingredients.section</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>ingredients.section <span class="ot">=</span> <span class="fu">html_element</span>(recipe.item, <span class="st">"#ingredients"</span>)</span>
+<span id="cb27-2"><a href="#cb27-2"></a>ingredients.section</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>{html_node}
@@ -439,27 +444,27 @@ window.Quarto = {
 </div>
 <p></p>
 </section>
-<section id="part-d-1" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="part-d-1"><span class="header-section-number">2.4</span> Part d</h2>
+<section id="part-d-1" class="level2" data-number="1.16">
+<h2 data-number="1.16" class="anchored" data-anchor-id="part-d-1"><span class="header-section-number">1.16</span> Part d</h2>
 <p>Now, we want to obtain all of the itemized items. Find the element type the individual ingredients and pull all of them from <code>ingredients.section</code> using <code>html_elements(...)</code> (note the added s) and save the results to an object called <code>ingredients</code>.<br> <strong>Hint</strong>: You can ask for elements by type by simply specifying the tag (e.g., “p” for paragraph). See `?html_element for a helpful example.</p>
 <p></p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>ingredients <span class="ot">=</span> <span class="fu">html_elements</span>(ingredients.section, <span class="st">"li"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a>ingredients <span class="ot">=</span> <span class="fu">html_elements</span>(ingredients.section, <span class="st">"li"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p></p>
 </section>
-<section id="part-e-1" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="part-e-1"><span class="header-section-number">2.5</span> Part e</h2>
+<section id="part-e-1" class="level2" data-number="1.17">
+<h2 data-number="1.17" class="anchored" data-anchor-id="part-e-1"><span class="header-section-number">1.17</span> Part e</h2>
 <p>Similar to Part c.&nbsp;Find the name of the Instructions section of the website and pull the HTML of the function using <code>html_element(...)</code> and save the results to an object called <code>instructions.section</code>.<br></p>
 <p></p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a>instructions.section <span class="ot">=</span> <span class="fu">html_element</span>(recipe.item, <span class="st">"#instructions"</span>)</span>
-<span id="cb28-2"><a href="#cb28-2"></a>instructions.section</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a>instructions.section <span class="ot">=</span> <span class="fu">html_element</span>(recipe.item, <span class="st">"#instructions"</span>)</span>
+<span id="cb30-2"><a href="#cb30-2"></a>instructions.section</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>{html_node}
@@ -470,15 +475,15 @@ window.Quarto = {
 </div>
 <p></p>
 </section>
-<section id="part-f-1" class="level2" data-number="2.6">
-<h2 data-number="2.6" class="anchored" data-anchor-id="part-f-1"><span class="header-section-number">2.6</span> Part f</h2>
+<section id="part-f-1" class="level2" data-number="1.18">
+<h2 data-number="1.18" class="anchored" data-anchor-id="part-f-1"><span class="header-section-number">1.18</span> Part f</h2>
 <p>Now, we want to obtain all of the enumerated items. Find the element type the individual instructions and pull all of them from <code>instructions.section</code> using <code>html_elements(...)</code> (note the added s) and save the results to an object called <code>instructions</code>.</p>
 <p></p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a>instructions <span class="ot">=</span> <span class="fu">html_elements</span>(instructions.section, <span class="st">"li"</span>)</span>
-<span id="cb30-2"><a href="#cb30-2"></a>instructions</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a>instructions <span class="ot">=</span> <span class="fu">html_elements</span>(instructions.section, <span class="st">"li"</span>)</span>
+<span id="cb32-2"><a href="#cb32-2"></a>instructions</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>{xml_nodeset (5)}
@@ -491,78 +496,70 @@ window.Quarto = {
 </div>
 <p></p>
 </section>
-<section id="part-g-1" class="level2" data-number="2.7">
-<h2 data-number="2.7" class="anchored" data-anchor-id="part-g-1"><span class="header-section-number">2.7</span> Part g</h2>
+<section id="part-g-1" class="level2" data-number="1.19">
+<h2 data-number="1.19" class="anchored" data-anchor-id="part-g-1"><span class="header-section-number">1.19</span> Part g</h2>
 <p>Find the class of the recipe image and pull the HTML using <code>html_element(...)</code> and save the results to an object called <code>image.element</code>. <br> <strong>Hint</strong>: You can ask for elements by class using a preceeding “.”. See <code>?html_element(...)</code> for a helpful example. Further, note that HTML elements may have more than one class (separated by a space). When that is the case, you need to choose one.</p>
 <p></p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a>image.element <span class="ot">=</span> <span class="fu">html_element</span>(recipe.item,<span class="st">"#kimchi-grilled-cheese"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a>image.element <span class="ot">=</span> <span class="fu">html_element</span>(recipe.item,<span class="st">".figure-img"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p></p>
 </section>
-<section id="part-h-1" class="level2" data-number="2.8">
-<h2 data-number="2.8" class="anchored" data-anchor-id="part-h-1"><span class="header-section-number">2.8</span> Part h</h2>
+<section id="part-h-1" class="level2" data-number="1.20">
+<h2 data-number="1.20" class="anchored" data-anchor-id="part-h-1"><span class="header-section-number">1.20</span> Part h</h2>
 <p>Use the <code>html_attr(...)</code> function to pull the source link (“src”). Then, use <code>paste(...)</code> to prepend the source link with “website/” so we have the full link.<br> <strong>Note</strong>: This would be like adding “https://www.website.com” to get the absolute link.</p>
 <p></p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="fu">html_attr</span>(image.element, <span class="st">"src"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a>image.url<span class="ot">=</span><span class="fu">paste</span>(<span class="st">"website/"</span>,<span class="fu">html_attr</span>(image.element, <span class="st">"src"</span>), <span class="at">sep=</span><span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] NA</code></pre>
-</div>
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="fu">paste</span>(<span class="fu">html_attr</span>(image.element, <span class="st">"src"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "NA"</code></pre>
-</div>
 </div>
 <p></p>
 </section>
-<section id="part-i-1" class="level2" data-number="2.9">
-<h2 data-number="2.9" class="anchored" data-anchor-id="part-i-1"><span class="header-section-number">2.9</span> Part i</h2>
+<section id="part-i-1" class="level2" data-number="1.21">
+<h2 data-number="1.21" class="anchored" data-anchor-id="part-i-1"><span class="header-section-number">1.21</span> Part i</h2>
 <p>Now that we have all the things we need, let’s try to print the recipe. Below, I have written code to print from the objects. One by one, remove <code>#| eval: false</code> from the YAML header and add <code>#| echo: false</code> and <code>#| results: 'asis'</code>, and test. Let me know if you’re stuck!</p>
 <p><strong>Image</strong></p>
 <p></p>
-<div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="co"># width="50%" shrinks the image for printing</span></span>
-<span id="cb37-2"><a href="#cb37-2"></a>recipe.title <span class="ot">&lt;-</span> recipe.item <span class="sc">|&gt;</span> <span class="fu">html_element</span>(<span class="st">"h1"</span>) <span class="sc">|&gt;</span> <span class="fu">html_text</span>()</span>
-<span id="cb37-3"><a href="#cb37-3"></a><span class="fu">cat</span>(<span class="fu">paste</span>(<span class="st">'!['</span>, recipe.title, <span class="st">']('</span>, image.url, <span class="st">"){width=50%}"</span>, <span class="at">sep=</span><span class="st">""</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<figcaption>Kimchi Grilled Cheese</figcaption>
+<p><img src="website/images/KimchiGrilledCheese.jpg" class="img-fluid figure-img" style="width:50.0%"></p>
+</figure>
 </div>
 <p></p>
 <p><strong>Ingredients</strong></p>
 <p></p>
-<div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a>formatted_list <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">"-"</span>, <span class="fu">html_text</span>(ingredients))</span>
-<span id="cb38-2"><a href="#cb38-2"></a><span class="fu">cat</span>(formatted_list, <span class="at">sep =</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
+<ul>
+<li>1/8 tsp chili flakes</li>
+<li>4 garlic cloves</li>
+<li>5 oz spinach</li>
+<li>1 tsp gochujang</li>
+<li>3 tsp mayonnaise</li>
+<li>2/3 cup kimchi</li>
+<li>4 slices of bread</li>
+<li>2/3 cup cheddar cheese</li>
+<li>4 tablespoons everything seasoning.</li>
+</ul>
 <p></p>
 <p><strong>Instructions</strong></p>
 <p></p>
-<div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a>formatted_list <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">"1."</span>, <span class="fu">html_text</span>(instructions))</span>
-<span id="cb39-2"><a href="#cb39-2"></a><span class="fu">cat</span>(formatted_list, <span class="at">sep =</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
+<ol type="1">
+<li>In a frying pan, heat 2 tablespoons olive oil with chili flakes.</li>
+<li>Add spinach and cook until wilted.</li>
+<li>Mix gochujang and mayonnaise in a small bowl and spread on one side of each slice of bread. Sprinkle with everything seasoning and press it into the bread.</li>
+<li>Build sandwiches by layering spinach, kimchi, and cheese between two slices of bread.</li>
+<li>Fry in butter until golden brown on both sides.</li>
+</ol>
 <p></p>
 </section>
 </section>
-<section id="complete-a-full-menu" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Complete a Full Menu!</h1>
+<section id="complete-a-full-menu" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Complete a Full Menu!</h1>
 <p>Open <code>Menu.qmd</code> and add code to complete the following.</p>
 <ol type="1">
 <li>Randomly select three dinner recipes and one breakfast recipe at random.<br> <strong>Hint:</strong> Use the <code>sample(...)</code> function.</li>
@@ -572,22 +569,22 @@ window.Quarto = {
 </ol>
 <p>When you render this document, no code should be visible. Instead, you should see a five-page document as described above.</p>
 </section>
-<section id="describe-your-work" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Describe your work!</h1>
-<section id="why-a-fake-website" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="why-a-fake-website"><span class="header-section-number">4.1</span> Why a fake website?</h2>
+<section id="describe-your-work" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Describe your work!</h1>
+<section id="why-a-fake-website" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="why-a-fake-website"><span class="header-section-number">3.1</span> Why a fake website?</h2>
 <p>Read <a href="Is%20Web%20Sraping%20Legal?">https://www.scrapingbee.com/blog/is-web-scraping-legal/</a>. Originally, I conceived doing this with recipes from Purple Carrot (my favorite subscription service). Being a large company, their terms of service are <em>very</em> long and precluded us from copying their recipes. We also checked a few smaller recipe websites we like and even they had terms of service that restricted automated collection of data.</p>
 </section>
-<section id="conditionals" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="conditionals"><span class="header-section-number">4.2</span> Conditionals</h2>
+<section id="conditionals" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="conditionals"><span class="header-section-number">3.2</span> Conditionals</h2>
 <p>Did you use conditional statements in your code? If yes, how. If not, are there places you could have used them but did something else?</p>
 </section>
-<section id="loops" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="loops"><span class="header-section-number">4.3</span> Loops</h2>
+<section id="loops" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="loops"><span class="header-section-number">3.3</span> Loops</h2>
 <p>Did you use loops in your code? If yes, how. If not, are there places you could have used them but did something else?</p>
 </section>
-<section id="functions" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="functions"><span class="header-section-number">4.4</span> Functions</h2>
+<section id="functions" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="functions"><span class="header-section-number">3.4</span> Functions</h2>
 <p>Did you use functions in your code? If yes, how. If not, are there places you could have used them but did something else?</p>
 
 </section>
