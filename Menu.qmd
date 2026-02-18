@@ -60,7 +60,6 @@ breakfasts <- c("website/BerryMelonSmoothie.html",
                 "website/OvernightOats.html",
                 "website/PumpkinToast.html",
                 "website/TropicalSmoothie.html")
-sample(breakfasts, 1)
 dinner <- c("website/AfricanPeanutSoup.html",
             "website/Alfredo.html",
             "website/ArugulaPasta.html",
@@ -84,16 +83,24 @@ dinner <- c("website/AfricanPeanutSoup.html",
             "website/RedWineRagu.html",
             "website/SalmonChowder.html",
             "website/Shakshuka.html")
-sample(dinner, 3)
+
+breakfast = sample(breakfasts, 1, replace= F)
+dinners = sample(dinner, 3, replace= F)
+
 ```
 
 # Ingredients
+
+```{r}
+
+
+```
 
 \newpage
 
 # Recipe One
 
-\newpage
+
 "website/CapreseSandwiches.html"
 
 ```{r}
@@ -220,3 +227,39 @@ cat(formatted_list, sep = "\n")
 # Breakfast Recipe
 
 "website/BerryMelonSmoothie.html"
+
+```{r}
+recipe.Smoothie = read_html("website/BerryMelonSmoothie.html")
+recipe.Smoothie
+ingredients.Smoothie = html_element(recipe.Smoothie, "#ingredients")
+ingredients.Smoothie
+ingredients = html_elements(ingredients.Smoothie, "li")
+Smoothie.instructions.section = html_element(recipe.Smoothie, "#instructions")
+Smoothie.instructions.section
+Smoothie.instructions = html_elements(Smoothie.instructions.section, "li")
+Smoothie.instructions
+image.element = html_element(recipe.Smoothie,".figure-img")
+image.url=paste("website/",html_attr(image.element, "src"), sep="")
+```
+
+```{r}
+#| echo: false
+#| results: 'asis'
+# width="50%" shrinks the image for printing
+recipe.title <- recipe.Smoothie |> html_element("h1") |> html_text()
+cat(paste('![', recipe.title, '](', image.url, "){width=50%}", sep="")) 
+```
+
+```{r}
+#| echo: false
+#| results: 'asis'
+formatted_list <- paste("-", html_text(ingredients.Smoothie))
+cat(formatted_list, sep = "\n")
+```
+
+```{r}
+#| echo: false
+#| results: 'asis'
+formatted_list <- paste("1.", html_text(Smoothie.instructions))
+cat(formatted_list, sep = "\n")
+```
