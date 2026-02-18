@@ -89,177 +89,193 @@ dinners = sample(dinner, 3, replace= F)
 
 ```
 
+```{r}
+#| echo: false
+# DINNER 1
+recipe.link1 = dinners[1]
+# directly from lab 4
+recipe.item1 = read_html(recipe.link1)
+ingredients.section1 = html_element(recipe.item1, "#ingredients")
+ingredients1 = html_elements(ingredients.section1, "li")
+instructions.section1 = html_element(recipe.item1, "#instructions")
+instructions1 = html_elements(instructions.section1, "li")
+image.element1 = html_element(recipe.item1,".figure-img")
+image.url1=paste("website/",html_attr(image.element1, "src"), sep="")
+recipe.title1 <- recipe.item1 |> html_element("h1") |> html_text()
+
+# DINNER 2
+
+recipe.link2 = dinners[2]
+# directly from lab 4
+recipe.item2 = read_html(recipe.link2)
+ingredients.section2 = html_element(recipe.item2, "#ingredients")
+ingredients2 = html_elements(ingredients.section2, "li")
+instructions.section2 = html_element(recipe.item2, "#instructions")
+instructions2 = html_elements(instructions.section2, "li")
+image.element2 = html_element(recipe.item2,".figure-img")
+image.url2=paste("website/",html_attr(image.element2, "src"), sep="")
+recipe.title2 <- recipe.item2 |> html_element("h1") |> html_text()
+
+# DINNER 3
+
+recipe.link3 = dinners[3]
+# directly from lab 4
+recipe.item3 = read_html(recipe.link3)
+ingredients.section3 = html_element(recipe.item3, "#ingredients")
+ingredients3 = html_elements(ingredients.section3, "li")
+instructions.section3 = html_element(recipe.item3, "#instructions")
+instructions3 = html_elements(instructions.section3, "li")
+image.element3 = html_element(recipe.item3,".figure-img")
+image.url3=paste("website/",html_attr(image.element3, "src"), sep="")
+recipe.title3 <- recipe.item3 |> html_element("h1") |> html_text()
+
+# BREAKFAST
+
+recipe.link4 = breakfast[1]
+# directly from lab 4
+recipe.item4 = read_html(recipe.link4)
+ingredients.section4 = html_element(recipe.item4, "#ingredients")
+ingredients4 = html_elements(ingredients.section4, "li")
+instructions.section4 = html_element(recipe.item4, "#instructions")
+instructions4 = html_elements(instructions.section4, "li")
+image.element4 = html_element(recipe.item4,".figure-img")
+image.url4=paste("website/",html_attr(image.element4, "src"), sep="")
+recipe.title4 <- recipe.item4 |> html_element("h1") |> html_text()
+
+```
+
 # Ingredients
 
 ```{r}
-
-
+#| echo: false
+#| results: 'asis'
+formatted_list1 <- paste("-", html_text(ingredients1))
+cat(formatted_list1, sep = "\n")
+formatted_list2 <- paste("-", html_text(ingredients2))
+cat(formatted_list2, sep = "\n")
+formatted_list3 <- paste("-", html_text(ingredients3))
+cat(formatted_list3, sep = "\n")
+formatted_list4 <- paste("-", html_text(ingredients4))
+cat(formatted_list4, sep = "\n")
 ```
 
 \newpage
 
 # Recipe One
-
-
-"website/CapreseSandwiches.html"
-
-```{r}
-recipe.Caprese = read_html("website/CapreseSandwiches.html")
-recipe.Caprese
-ingredients.Caprese = html_element(recipe.Caprese, "#ingredients")
-ingredients.Caprese
-ingredients = html_elements(ingredients.Caprese, "li")
-Caprese.instructions.section = html_element(recipe.Caprese, "#instructions")
-Caprese.instructions.section
-Caprese.instructions = html_elements(Caprese.instructions.section, "li")
-Caprese.instructions
-image.element = html_element(recipe.Caprese,".figure-img")
-image.url=paste("website/",html_attr(image.element, "src"), sep="")
-```
-
 ```{r}
 #| echo: false
 #| results: 'asis'
 # width="50%" shrinks the image for printing
-recipe.title <- recipe.Caprese |> html_element("h1") |> html_text()
-cat(paste('![', recipe.title, '](', image.url, "){width=50%}", sep="")) 
+recipe.title1 <- recipe.item1 |> html_element("h1") |> html_text()
+cat(paste('![', recipe.title1, '](', image.url1, "){width=50%}", sep="")) 
 ```
+
+## Ingredients
 
 ```{r}
 #| echo: false
 #| results: 'asis'
-formatted_list <- paste("-", html_text(ingredients.Caprese))
-cat(formatted_list, sep = "\n")
+formatted_list1 <- paste("-", html_text(ingredients1))
+cat(formatted_list1, sep = "\n")
 ```
+
+## Instructions
 
 ```{r}
 #| echo: false
 #| results: 'asis'
-formatted_list <- paste("1.", html_text(Caprese.instructions))
-cat(formatted_list, sep = "\n")
+formatted_list1 <- paste("1.", html_text(instructions1))
+cat(formatted_list1, sep = "\n")
 ```
+
+
 
 # Recipe Two
 
-\newpage
-"website/BLTSalad.html"
-
-
-```{r}
-recipe.BLT = read_html("website/BLTSalad.html")
-recipe.BLT
-ingredients.BLT = html_element(recipe.BLT, "#ingredients")
-ingredients.BLT
-ingredients = html_elements(ingredients.BLT, "li")
-BLT.instructions.section = html_element(recipe.BLT, "#instructions")
-BLT.instructions.section
-BLT.instructions = html_elements(BLT.instructions.section, "li")
-BLT.instructions
-image.element = html_element(recipe.BLT,".figure-img")
-image.url=paste("website/",html_attr(image.element, "src"), sep="")
-```
 
 ```{r}
 #| echo: false
 #| results: 'asis'
 # width="50%" shrinks the image for printing
-recipe.title <- recipe.BLT |> html_element("h1") |> html_text()
-cat(paste('![', recipe.title, '](', image.url, "){width=50%}", sep="")) 
+recipe.title2 <- recipe.item2 |> html_element("h1") |> html_text()
+cat(paste('![', recipe.title2, '](', image.url2, "){width=50%}", sep="")) 
 ```
+
+## Ingredients
 
 ```{r}
 #| echo: false
 #| results: 'asis'
-formatted_list <- paste("-", html_text(ingredients.BLT))
-cat(formatted_list, sep = "\n")
+formatted_list2 <- paste("-", html_text(ingredients2))
+cat(formatted_list2, sep = "\n")
 ```
+
+## Instructions
 
 ```{r}
 #| echo: false
 #| results: 'asis'
-formatted_list <- paste("1.", html_text(BLT.instructions))
-cat(formatted_list, sep = "\n")
+formatted_list2 <- paste("1.", html_text(instructions2))
+cat(formatted_list2, sep = "\n")
 ```
 
+\newpage
 
 # Recipe Three
 
-\newpage
-"website/.html"
-
-
-```{r}
-recipe.AfricanPeanutSoup = read_html("website/AfricanPeanutSoup.html")
-recipe.AfricanPeanutSoup
-ingredients.AfricanPeanutSoup = html_element(recipe.AfricanPeanutSoup, "#ingredients")
-ingredients.AfricanPeanutSoup
-ingredients = html_elements(ingredients.AfricanPeanutSoup, "li")
-AfricanPeanutSoup.instructions.section = html_element(recipe.AfricanPeanutSoup, "#instructions")
-AfricanPeanutSoup.instructions.section
-AfricanPeanutSoup.instructions = html_elements(AfricanPeanutSoup.instructions.section, "li")
-AfricanPeanutSoup.instructions
-image.element = html_element(recipe.AfricanPeanutSoup,".figure-img")
-image.url=paste("website/",html_attr(image.element, "src"), sep="")
-```
-
 ```{r}
 #| echo: false
 #| results: 'asis'
 # width="50%" shrinks the image for printing
-recipe.title <- recipe.AfricanPeanutSoup |> html_element("h1") |> html_text()
-cat(paste('![', recipe.title, '](', image.url, "){width=50%}", sep="")) 
+recipe.title3 <- recipe.item3 |> html_element("h1") |> html_text()
+cat(paste('![', recipe.title3, '](', image.url3, "){width=50%}", sep="")) 
 ```
+
+## Ingredients
 
 ```{r}
 #| echo: false
 #| results: 'asis'
-formatted_list <- paste("-", html_text(ingredients.AfricanPeanutSoup))
-cat(formatted_list, sep = "\n")
+formatted_list3 <- paste("-", html_text(ingredients3))
+cat(formatted_list3, sep = "\n")
 ```
+
+## Instructions
 
 ```{r}
 #| echo: false
 #| results: 'asis'
-formatted_list <- paste("1.", html_text(AfricanPeanutSoup.instructions))
-cat(formatted_list, sep = "\n")
+formatted_list3 <- paste("1.", html_text(instructions3))
+cat(formatted_list3, sep = "\n")
 ```
+
+
 
 # Breakfast Recipe
 
-"website/BerryMelonSmoothie.html"
-
-```{r}
-recipe.Smoothie = read_html("website/BerryMelonSmoothie.html")
-recipe.Smoothie
-ingredients.Smoothie = html_element(recipe.Smoothie, "#ingredients")
-ingredients.Smoothie
-ingredients = html_elements(ingredients.Smoothie, "li")
-Smoothie.instructions.section = html_element(recipe.Smoothie, "#instructions")
-Smoothie.instructions.section
-Smoothie.instructions = html_elements(Smoothie.instructions.section, "li")
-Smoothie.instructions
-image.element = html_element(recipe.Smoothie,".figure-img")
-image.url=paste("website/",html_attr(image.element, "src"), sep="")
-```
-
 ```{r}
 #| echo: false
 #| results: 'asis'
 # width="50%" shrinks the image for printing
-recipe.title <- recipe.Smoothie |> html_element("h1") |> html_text()
-cat(paste('![', recipe.title, '](', image.url, "){width=50%}", sep="")) 
+recipe.title4 <- recipe.item4 |> html_element("h1") |> html_text()
+cat(paste('![', recipe.title4, '](', image.url4, "){width=50%}", sep="")) 
 ```
+
+## Ingredients
 
 ```{r}
 #| echo: false
 #| results: 'asis'
-formatted_list <- paste("-", html_text(ingredients.Smoothie))
-cat(formatted_list, sep = "\n")
+formatted_list4 <- paste("-", html_text(ingredients4))
+cat(formatted_list4, sep = "\n")
 ```
+
+## Instructions
 
 ```{r}
 #| echo: false
 #| results: 'asis'
-formatted_list <- paste("1.", html_text(Smoothie.instructions))
-cat(formatted_list, sep = "\n")
+formatted_list4 <- paste("1.", html_text(instructions4))
+cat(formatted_list4, sep = "\n")
 ```
+

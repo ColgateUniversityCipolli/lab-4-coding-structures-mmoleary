@@ -153,9 +153,6 @@ for(i in 1:nrow(df)){
   df$x12[i]=df[i,1]*df[i,2]
 }
 df[,"x12"]
-
-x12 = c(df[,2]*df[,1])
-x12
 ```
 
 ## Part i
@@ -169,7 +166,8 @@ x2 = df[,2]
 x3 = df[,3]
 calculate.score = function(x1, x2, x3){(2*x1)+x2-x3}
 df = data.frame(x1, x2, x3, 
-                total.score=calculate.score(x1,x2,x3))
+                total.score = calculate.score(x1,x2,x3))
+df[ ,4]
 df
 ```
 
@@ -194,7 +192,22 @@ sapply(x1, evaluate.row)
 ## Part k
 Did we need to use loops or functions in (h.)-(j.)? That is, can we use vectorization to attain the same results in 1 line each? Where it is possible, write the line of code. Where it is not, explain why.
 
-I could use a vectorization in part h by filling a manual vector with the product of the data frame's columns x1 and x2.
+I could use a vectorization in part h by filling a manual vector with the product of the data frame's columns x1 and x2. 
+
+```{r}
+x12 = c(df[,2]*df[,1])
+x12
+```
+
+In part i, I could have also used a manual vector in place of a function, and I would have made calculcated.score = total.score.
+
+```{r}
+calculated.score = c((2*x1)+x2-x3)
+calculated.score
+```
+
+In part j, I don't think I could have used vectorization because to have three outcomes, I would need to use block notation and that is non-vectorized.
+
 # Complete Tasks for One Recipe
 
 ## Part a
@@ -320,10 +333,14 @@ Read [https://www.scrapingbee.com/blog/is-web-scraping-legal/](Is Web Sraping Le
 ## Conditionals
 Did you use conditional statements in your code? If yes, how. If not, are there places you could have used them but did something else?
 
+I did not use conditionals in my code, but I could have used conditionals to differentiate between the different recipes instead of using multiple different objects, but this seemed fairly inefficient when I could just use a general solution for one recipe and apply it to multiple recipes. Addtionally, this would be a bit unconventional considering that different conditions recieve the same general treatment.
+
 ## Loops
 Did you use loops in your code? If yes, how. If not, are there places you could have used them but did something else?
+
+I did not use loops in my code. I could have used loops to reproduce the general solution across different recipes, but I just opted to do it manually with copy/paste.
 
 ## Functions
 Did you use functions in your code? If yes, how. If not, are there places you could have used them but did something else?
 
-
+I did not use functions in my code, but I could have made the code for ingredients, instructions, and images different functions for the sake of brevity and cleaner code.
