@@ -232,8 +232,8 @@ Load the html of the `website/KimchiGrilledCheese.html` using the `read_html()` 
 **Hint**: You can use `read_html(...)` like `read.csv(...)`. Don't forget you can use the documentation to help use it.
 
 ```{r}
-recipe.item = read_html("website/KimchiGrilledCheese.html") #makes the webpage a digestable object for later code.
-recipe.item
+recipe.item = read_html("website/KimchiGrilledCheese.html")
+ #makes the webpage a digestable object for later code.
 ```
 
 ## Part c
@@ -245,7 +245,7 @@ Find the name of the Ingredients section of the website and pull the HTML of the
 
 ```{r}
 ingredients.section = html_element(recipe.item, "#ingredients") 
-ingredients.section
+# this pulls the specific section involving ingredients
 ```
 
 ## Part d
@@ -253,15 +253,16 @@ Now, we want to obtain all of the itemized items. Find the element type the indi
 **Hint**: You can ask for elements by type by simply specifying the tag (e.g., "p" for paragraph). See `?html_element for a helpful example.
 
 ```{r}
-ingredients = html_elements(ingredients.section, "li")
+ingredients = html_elements(ingredients.section, "li") 
+#This creates the object that will list out the ingredients from the section
 ```
 
 ## Part e
 Similar to Part c. Find the name of the Instructions section of the website and pull the HTML of the function using `html_element(...)` and save the results to an object called `instructions.section`.<br/>
 
 ```{r}
-instructions.section = html_element(recipe.item, "#instructions")
-instructions.section
+instructions.section = html_element(recipe.item, "#instructions") 
+# this pulls the specific section involving instructions
 ```
 
 ## Part f
@@ -269,7 +270,7 @@ Now, we want to obtain all of the enumerated items. Find the element type the in
 
 ```{r}
 instructions = html_elements(instructions.section, "li")
-instructions
+#This creates the object that will list out the instructions from the section
 ```
 
 ## Part g
@@ -278,7 +279,7 @@ Find the class of the recipe image and pull the HTML using `html_element(...)` a
 
 ```{r}
 image.element = html_element(recipe.item,".figure-img")
-
+# this will pull the specific image from the website into a digestible object
 ```
 
 ## Part h
@@ -287,6 +288,7 @@ Use the `html_attr(...)` function to pull the source link ("src"). Then, use `pa
 
 ```{r}
 image.url=paste("website/",html_attr(image.element, "src"), sep="")
+# this will paste the specific image from the object
 ```
 
 ## Part i
@@ -307,7 +309,7 @@ cat(paste('![', recipe.title, '](', image.url, "){width=50%}", sep=""))
 ```{r}
 #| echo: false
 #| results: 'asis'
-formatted_list <- paste("-", html_text(ingredients))
+formatted_list <- paste("-", html_text(ingredients)) 
 cat(formatted_list, sep = "\n")
 ```
 
@@ -350,3 +352,7 @@ I did not use loops in my code. I could have used loops to reproduce the general
 Did you use functions in your code? If yes, how. If not, are there places you could have used them but did something else?
 
 I did not use functions in my code, but I could have made the code for ingredients, instructions, and images different functions for the sake of brevity and cleaner code.
+
+# Citations
+
+I used the tidyverse package [@tidyverse] and [@R] as my coding program, and Rvest [@rvest].
